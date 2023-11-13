@@ -3,6 +3,12 @@ from selenium import webdriver
 import time
 
 
+def jump():
+    pyautogui.keyDown('space')
+    time.sleep(0.3)
+    pyautogui.keyUp('space')
+
+
 def game():
 
     chrome_options = webdriver.ChromeOptions()
@@ -14,17 +20,13 @@ def game():
 
     time.sleep(3)
 
-    pyautogui.press('space')
+    jump()
 
     try:
         while True:
             screenshot = pyautogui.screenshot()
-
             if screenshot.getpixel((600, 850)) == (83, 83, 83):
-                pyautogui.press('space')
-
-    except KeyboardInterrupt:
-        pass
+                jump()
     finally:
         driver.quit()
 

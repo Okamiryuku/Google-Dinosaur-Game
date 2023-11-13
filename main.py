@@ -22,13 +22,10 @@ def game():
 
     jump()
 
-    try:
-        while True:
-            screenshot = pyautogui.screenshot()
-            if screenshot.getpixel((600, 850)) == (83, 83, 83):
-                jump()
-    finally:
-        driver.quit()
+    while True:
+        screenshot = pyautogui.screenshot()
+        if screenshot.getpixel((600, 850)) == (83, 83, 83):
+            jump()
 
 
 game()
